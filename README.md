@@ -59,3 +59,5 @@ add_filter('pix_mitarbeiter_fields','pix_changefields');
 
 `array_push` pusht das neue Array `$new_field` ans Ende des Arrays `$box_args['fields']` und registriert so das Feld.
 Über `add_filter` wird der Filter aktiv und das neue Feld reingeholt.
+
+__SEHR WICHTIG__ ist, dass das Feld `key` mit `field_`beginnt und danach mit einer einzigartigen Nummern/Zeichenreihefolge beendet wird, damit es ein Alleinstellunsgsmerkmal (ID) hat.
