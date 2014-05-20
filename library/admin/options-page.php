@@ -25,7 +25,25 @@
 						<label for="include_css">Soll vorgefertigtes CSS mit reingeholt werden? (Dieses beschränkt sich auf Floatings und Abstandregelung)</label>
 					</td>
 				</tr>
+				<tr valign="top">
+					<th scope="row">Accordeon JS</th>
+					<td>
+						<input type="checkbox" value="1" <?php if ( get_option('include_accordeon')) echo 'checked="checked"'; ?> name="include_accordeon" />
+						<label for="include_accordeon">Soll das Accordeon JS eingefügt werden?</label>
+					</td>
+				</tr>
+				
 			</table>
 			<?php submit_button(); ?>
 		</form>
+		<h3><div class="dashicons dashicons-lightbulb"></div> Dokumentation</h3>
+		<table class="form-table">
+			<tr valign="top">
+				<td>
+					<p class="description">
+						<a  target="_blank" href="https://github.com/PixelbarEupen/pix-mitarbeiter-plugin/blob/master/README.md">Schaue dir die Readme für eine detaillierte Dokumentation an!</a>
+					</p>
+				</td>
+			</tr>
+		</table>
 	</div>

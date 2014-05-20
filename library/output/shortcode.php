@@ -19,7 +19,8 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 	        'title' => '',
 	        'position' => '',
 	        'limit' => -1,
-	        'sort_order' => 'DESC'
+	        'sort_order' => 'DESC',
+	        'accordeon' => 'true'
 	    ), $atts ));
 		
 		//USE THESE ATTS IN THE ARGS FOR THE QUERY
@@ -36,11 +37,13 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 		$mitarbeiter = new WP_Query($args);
 		
 		//CERATE OUTPUT VAR
-		$output = '<div class="alle-mitarbeiter">';
+		$output = ($accordeon == 'false') ? '<div class="alle-mitarbeiter no-accordeon">' : '<div class="alle-mitarbeiter">';
+
 			if(isset($title)):
 				$output .= '<h3>'.$title.'</h3>';
 			endif;
 		//THE LOOP
+		$output .= '<div class="accordeon-wrapper">';
 		while($mitarbeiter->have_posts()) : $mitarbeiter->the_post();
 		
 			$pos = wp_get_post_terms(get_the_ID(),'Position');
@@ -64,6 +67,10 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 					$output .= '<p class="funktion">'.get_field('pix_mitarbeiter_funktion').'</p>';
 				endif;
 				
+				if(get_field('pix_mitarbeiter_sonstiges')):
+					$output .= '<p class="sonstiges">'.get_field('pix_mitarbeiter_sonstiges').'</p>';
+				endif;
+				
 				$output .= '<h4>'.get_the_title().'</h4>';
 				
 				if(get_field('pix_mitarbeiter_email')):
@@ -78,7 +85,7 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 				$output .= '<div class="clear"></div>';
 			$output .= '</div>';
 		endwhile;
-		
+		$output .= '</div>';
 		$output .= '</div>';
 		
 		

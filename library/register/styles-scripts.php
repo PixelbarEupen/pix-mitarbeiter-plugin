@@ -13,8 +13,14 @@ if(!function_exists('pix_mitarbeiter_register_files')):
 	function pix_mitarbeiter_register_files(){	
 		
 		if ( get_option('include_css')){
-			wp_register_style( 'mitarbeiter', plugins_url( '/css/mitarbeiter.css' , dirname(__FILE__ )));
+			wp_register_style( 'mitarbeiter', HTTP_PIX_MITARBEITER_PATH.'/assets/css/mitarbeiter.css');
 			wp_enqueue_style( 'mitarbeiter' );
+		}
+		
+		if ( get_option('include_accordeon')){
+			wp_enqueue_script( 'jquery' );
+			wp_register_script( 'mitarbeiter', HTTP_PIX_MITARBEITER_PATH.'/assets/js/mitarbeiter.js');
+			wp_enqueue_script( 'mitarbeiter' );
 		}
 		
 	}

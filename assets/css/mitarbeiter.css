@@ -1,0 +1,20 @@
+.alle-mitarbeiter {margin-bottom: 25px;}
+.mitarbeiter {
+	padding: 25px 0;
+	border-bottom: 1px solid lightgrey;
+}
+.mitarbeiter .image {
+	float: left;
+	margin: 0 25px 0 0;
+}
+.mitarbeiter .clear {
+	clear: both;
+}
+
+
+.mitarbeiter-accordeon h3 {
+	cursor: pointer;
+}
+.mitarbeiter-accordeon .accordeon-wrapper {
+	display: none;
+}

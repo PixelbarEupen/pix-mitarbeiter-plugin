@@ -25,7 +25,7 @@ if(!function_exists('pix_mitarbeiter_options')):
 
 	//this is the callback function from the menu element
 	function pix_mitarbeiter_options(){
-	    	include(plugin_dir_path(dirname(__FILE__)).'admin/options-page.php');
+	    	include(UNIX_PIX_MITARBEITER_PATH.'/library/admin/options-page.php');
 	    	
 	}
 
@@ -37,6 +37,7 @@ if(!function_exists('pix_mitarbeiter_register_settings')):
 	function pix_mitarbeiter_register_settings() {
 	//register our settings
 		register_setting( 'pix-mitarbeiter-settings', 'include_css' );
+		register_setting( 'pix-mitarbeiter-settings', 'include_accordeon' );
 	}
 
 endif;
