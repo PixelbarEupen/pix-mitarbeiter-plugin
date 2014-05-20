@@ -14,7 +14,9 @@ Folgende Eingabemöglichkeiten gibt es:
  * Telefonnummer (Textfeld -> wegen "+ Vorwahl")
  
 __WICHTIG:__ Es ist möglich, über das Theme weitere Felder zu registrieren. Mehr dazu unter "__Erweitert__"
- 
+
+---
+
 ## Ausgabe
 ### Shortcode
 Die Ausgabe der einzelnen Mitarbeiter findet über Shortcodes statt:
