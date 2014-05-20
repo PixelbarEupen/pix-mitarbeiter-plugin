@@ -33,8 +33,8 @@ Das obige Beispiel beinhält __ALLE__ Parameter, die mitgegeben werden können:
 Es ist möglich, über `add_filter()` weitere Felder für die Mitarbeiter hinzuzufügen. Gehe von folgendem Beispiel aus:
 
 `
-function pix_changefields($box_args){
-	
+function pix_changefields($box_args)
+{	
 	$new_field = array (
 		'key' => 'field_5321qsdp7',
 		'label' => 'Testfeld',
