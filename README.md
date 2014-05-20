@@ -32,9 +32,8 @@ Das obige Beispiel beinhält __ALLE__ Parameter, die mitgegeben werden können:
 ### Eigene Felder über das Theme einfügen
 Es ist möglich, über `add_filter()` weitere Felder für die Mitarbeiter hinzuzufügen. Gehe von folgendem Beispiel aus:
 
-`
-function pix_changefields($box_args)
-{	
+```
+function pix_changefields($box_args){	
 	$new_field = array (
 		'key' => 'field_5321qsdp7',
 		'label' => 'Testfeld',
@@ -54,7 +53,7 @@ function pix_changefields($box_args)
 	return $box_args;
 }
 add_filter('pix_mitarbeiter_fields','pix_changefields');
-` 
+```
 
 `array_push` pusht das neue Array `$new_field` ans Ende des Arrays `$box_args['fields']` und registriert so das Feld.
 Über `add_filter` wird der Filter aktiv und das neue Feld reingeholt.
