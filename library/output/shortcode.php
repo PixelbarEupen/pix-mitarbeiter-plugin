@@ -30,6 +30,7 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 				'suppress_filters' => 0,
 				'post_type' => 'mitarbeiter',
 				'post_status' => 'publish',
+				'posts_per_page' => -1,
 				'numberposts'     => $limit,
 				'order' => $sort_order,
 				'orderby' => 'menu_order',
@@ -70,29 +71,32 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 				$output .= '<h4>'.get_the_title().'</h4>';
 				
 				$output .= '<div class="user-content">';
+					$filteroutput = '';
 					if(get_field('pix_mitarbeiter_funktion')):
-						$output .= '<p class="funktion">'.get_field('pix_mitarbeiter_funktion').'</p>';
+						$filteroutput .= '<p class="funktion">'.get_field('pix_mitarbeiter_funktion').'</p>';
 					endif;
 					
 					if(get_field('pix_mitarbeiter_sonstiges')):
-						$output .= '<p class="sonstiges">'.get_field('pix_mitarbeiter_sonstiges').'</p>';
+						$filteroutput .= '<p class="sonstiges">'.get_field('pix_mitarbeiter_sonstiges').'</p>';
 					endif;
 				
 					if(get_field('pix_mitarbeiter_email')):
-						$output .= '<a class="mail" href="mailto:'.encode_email_address(get_field('pix_mitarbeiter_email')).'" title="'.get_the_title().' '.__('eine Nachricht schreiben','Pix Mitarbeiter').'">';
-							$output .= encode_email_address(get_field('pix_mitarbeiter_email'));
-						$output .= '</a>';
+						$filteroutput .= '<a class="mail" href="mailto:'.encode_email_address(get_field('pix_mitarbeiter_email')).'" title="'.get_the_title().' '.__('eine Nachricht schreiben','Pix Mitarbeiter').'">';
+							$filteroutput .= encode_email_address(get_field('pix_mitarbeiter_email'));
+						$filteroutput .= '</a>';
 					endif;
 					
 					if(get_field('pix_mitarbeiter_url')):
-						$output .= '<a target="_blank" href="'.get_field('pix_mitarbeiter_url').'" title="'.get_field('pix_mitarbeiter_url').'">';
-							$output .= get_field('pix_mitarbeiter_url');
-						$output .= '</a>';
+						$filteroutput .= '<a target="_blank" href="'.get_field('pix_mitarbeiter_url').'" title="'.get_field('pix_mitarbeiter_url').'">';
+							$filteroutput .= get_field('pix_mitarbeiter_url');
+						$filteroutput .= '</a>';
 					endif;
 					
 					if(get_field('pix_mitarbeiter_number')):
-						$output .= '<p class="phone">'.get_field('pix_mitarbeiter_number').'</p>';
+						$filteroutput .= '<p class="phone">'.get_field('pix_mitarbeiter_number').'</p>';
 					endif;
+					
+					$output .= apply_filters('pix_mitarbeiter_output',$filteroutput);
 				$output .= '</div>';
 				$output .= '<div class="clear"></div>';
 			$output .= '</div>';

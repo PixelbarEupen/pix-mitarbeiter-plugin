@@ -17,10 +17,16 @@ jQuery(document).ready(function($){
 	if($user.length !== 0){
 		$user.find('.user-content').hide();
 		
+		
+		var icon = '<i class="dashicons dashicons-arrow-right-alt2"></i>';
+		$user.find('h4').prepend(icon);
+		
+		
 		if($user.data('trigger') === 'click'){
 			$user.find('h4').click(function(e){
 				if(!$(this).parent().find('.user-content').is(':empty')){
 					$(this).parent().find('.user-content').slideToggle();
+					$(this).find('i').toggleClass('open')
 				}
 			});
 		} else if($user.data('trigger') === 'hover'){
