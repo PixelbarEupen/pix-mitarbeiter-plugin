@@ -21,7 +21,7 @@ __WICHTIG:__ Es ist möglich, über das Theme weitere Felder zu registrieren. Me
 ### Shortcode
 Die Ausgabe der einzelnen Mitarbeiter findet über Shortcodes statt:
 
-`[mitarbeiter position="Mitglied" title="Mitglieder" accordeon="true" limit="-1" sort_order="DESC" accordeon_per_user="true" show_on="hover"]`
+```[mitarbeiter position="Mitglied" title="Mitglieder" accordeon="true" limit="-1" sort_order="DESC" accordeon_per_user="true" show_on="hover"]```
 
 Das obige Beispiel beinhält __ALLE__ Parameter, die mitgegeben werden können:
  * `position`: __(string)__ Name / Slug der Position (Custom Taxonomy)
