@@ -6,7 +6,8 @@
 	Description: Erweitert Wordpress um eine Mitarbeiter-Rubrik, in der einzelne Infos zu diesen eingegeben und im Frontend ausgegeben werden können.
 	Plugin URI: https://github.com/PixelbarEupen/pix-mitarbeiter-plugin
 	Version: 0.1.5
-	
+	GitHub Plugin URI: https://github.com/PixelbarEupen/pix-mitarbeiter-plugin
+	GitHub Access Token: 6ca583973da0e33ee1a6c90c3e4920e6143369ca
 	*/
 	
 	
