@@ -37,13 +37,14 @@ Das obige Beispiel beinhält __ALLE__ Parameter, die mitgegeben werden können:
 Es ist möglich, über `add_filter()` weitere Felder für die Mitarbeiter hinzuzufügen. Gehe von folgendem Beispiel aus:
 
 ```
-function pix_changefields($box_args){	
+function pix_changefields($box_args){
+	
 	$new_field = array (
 		'key' => 'field_5321qsdp7',
-		'label' => 'Testfeld',
-		'name' => 'pix_mitarbeiter_testfeld',
+		'label' => 'Zweite URL',
+		'name' => 'pix_mitarbeiter_zweite_url',
 		'type' => 'text',
-		'instructions' => 'Das ist ein Testfeld',
+		'instructions' => 'Geben Sie hier die 2. URL zu einer Website ein.',
 		'default_value' => '',
 		'placeholder' => '',
 		'prepend' => '',
@@ -63,3 +64,17 @@ add_filter('pix_mitarbeiter_fields','pix_changefields');
 Über `add_filter` wird der Filter aktiv und das neue Feld reingeholt.
 
 __SEHR WICHTIG__ ist, dass das Feld `key` mit `field_`beginnt und danach mit einer einzigartigen Nummern/Zeichenreihefolge beendet wird, damit es ein Alleinstellunsgsmerkmal (ID) hat.
+
+### Das eigene Feld in die Ausgabe einbinden
+```
+function pix_mitarbeiter_add_output($output) {
+	if(get_field('pix_mitarbeiter_zweite_url')):
+		$newfield = '<a target="_blank" href="'.get_field('pix_mitarbeiter_zweite_url').'" title="'.get_field('pix_mitarbeiter_zweite_url').'">';
+			$newfield .= get_field('pix_mitarbeiter_zweite_url');
+		$newfield .= '</a>';
+	endif;
+	
+	return $output.$newfield;
+}
+add_filter('pix_mitarbeiter_output','pix_mitarbeiter_add_output');
+```
