@@ -19,8 +19,12 @@ if(!function_exists('pix_mitarbeiter_register_files')):
 		
 		if ( get_option('include_accordeon')){
 			wp_enqueue_script( 'jquery' );
+			wp_register_script( 'hoverIntent', HTTP_PIX_MITARBEITER_PATH.'/assets/js/hoverIntent.js');
+			wp_enqueue_script( 'hoverIntent' );
 			wp_register_script( 'mitarbeiter', HTTP_PIX_MITARBEITER_PATH.'/assets/js/mitarbeiter.js');
 			wp_enqueue_script( 'mitarbeiter' );
+			
+			
 		}
 		
 	}

@@ -5,7 +5,7 @@
 	Author: Adrian Lambertz
 	Description: Erweitert Wordpress um eine Mitarbeiter-Rubrik, in der einzelne Infos zu diesen eingegeben und im Frontend ausgegeben werden können.
 	Plugin URI: https://github.com/PixelbarEupen/pix-mitarbeiter-plugin
-	Version: 0.1.1
+	Version: 0.1.5
 	
 	*/
 	

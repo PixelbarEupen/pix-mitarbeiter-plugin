@@ -20,7 +20,9 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 	        'position' => '',
 	        'limit' => -1,
 	        'sort_order' => 'DESC',
-	        'accordeon' => 'true'
+	        'accordeon' => 'true',
+	        'accordeon_per_user' => 'false',
+	        'show_on' => 'click'
 	    ), $atts ));
 		
 		//USE THESE ATTS IN THE ARGS FOR THE QUERY
@@ -48,8 +50,10 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 		
 			$pos = wp_get_post_terms(get_the_ID(),'Position');
 		
+			$apu = ($accordeon_per_user == 'true') ? 'accorderon-per-user' : '';
+			$trigger = ($show_on == 'hover') ? 'hover' : 'click';
 
-			$output .= '<div class="mitarbeiter mitarbeiter-'.get_the_ID().' position-'.$pos[0]->slug.'">';
+			$output .= '<div class="mitarbeiter mitarbeiter-'.get_the_ID().' position-'.$pos[0]->slug.' '.$apu.'" data-trigger="'.$trigger.'">';
 				
 				if(get_field('pix_mitarbeiter_bild')):
 					$output .= '<div class="image">';
@@ -63,25 +67,33 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 					$output .= '</div>';
 				endif;
 				
-				if(get_field('pix_mitarbeiter_funktion')):
-					$output .= '<p class="funktion">'.get_field('pix_mitarbeiter_funktion').'</p>';
-				endif;
-				
-				if(get_field('pix_mitarbeiter_sonstiges')):
-					$output .= '<p class="sonstiges">'.get_field('pix_mitarbeiter_sonstiges').'</p>';
-				endif;
-				
 				$output .= '<h4>'.get_the_title().'</h4>';
 				
-				if(get_field('pix_mitarbeiter_email')):
-					$output .= '<a class="mail" href="mailto:'.encode_email_address(get_field('pix_mitarbeiter_email')).'" title="'.get_the_title().' '.__('eine Nachricht schreiben','Pix Mitarbeiter').'">';
-						$output .= encode_email_address(get_field('pix_mitarbeiter_email'));
-					$output .= '</a>';
-				endif;
+				$output .= '<div class="user-content">';
+					if(get_field('pix_mitarbeiter_funktion')):
+						$output .= '<p class="funktion">'.get_field('pix_mitarbeiter_funktion').'</p>';
+					endif;
+					
+					if(get_field('pix_mitarbeiter_sonstiges')):
+						$output .= '<p class="sonstiges">'.get_field('pix_mitarbeiter_sonstiges').'</p>';
+					endif;
 				
-				if(get_field('pix_mitarbeiter_number')):
-					$output .= '<p class="phone">'.get_field('pix_mitarbeiter_number').'</p>';
-				endif;
+					if(get_field('pix_mitarbeiter_email')):
+						$output .= '<a class="mail" href="mailto:'.encode_email_address(get_field('pix_mitarbeiter_email')).'" title="'.get_the_title().' '.__('eine Nachricht schreiben','Pix Mitarbeiter').'">';
+							$output .= encode_email_address(get_field('pix_mitarbeiter_email'));
+						$output .= '</a>';
+					endif;
+					
+					if(get_field('pix_mitarbeiter_url')):
+						$output .= '<a target="_blank" href="'.get_field('pix_mitarbeiter_url').'" title="'.get_field('pix_mitarbeiter_url').'">';
+							$output .= get_field('pix_mitarbeiter_url');
+						$output .= '</a>';
+					endif;
+					
+					if(get_field('pix_mitarbeiter_number')):
+						$output .= '<p class="phone">'.get_field('pix_mitarbeiter_number').'</p>';
+					endif;
+				$output .= '</div>';
 				$output .= '<div class="clear"></div>';
 			$output .= '</div>';
 		endwhile;

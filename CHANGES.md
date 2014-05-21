@@ -1,8 +1,8 @@
 ### Changelog Pix Mitarbeiter Plugin
 
-#### 0.1.1 (20/05/14)
+#### 0.1.5 (21/05/14)
 
-* added mandy bugfixes. read the readme file 
+* Added js accordeon support
 
 #### 0.1 (13/05/14)
 

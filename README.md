@@ -19,7 +19,7 @@ __WICHTIG:__ Es ist möglich, über das Theme weitere Felder zu registrieren. Me
 ### Shortcode
 Die Ausgabe der einzelnen Mitarbeiter findet über Shortcodes statt:
 
-`[mitarbeiter position="Mitglied" title="Mitglieder" accordeon="true" limit="-1" sort_order="DESC"]`
+`[mitarbeiter position="Mitglied" title="Mitglieder" accordeon="true" limit="-1" sort_order="DESC" accordeon_per_user="true" show_on="hover"]`
 
 Das obige Beispiel beinhält __ALLE__ Parameter, die mitgegeben werden können:
  * `position`: __(string)__ Name / Slug der Position (Custom Taxonomy)
@@ -27,6 +27,8 @@ Das obige Beispiel beinhält __ALLE__ Parameter, die mitgegeben werden können:
  * `accordeon`: __(bool)__ true oder false ob die Accordeon Ausklappfunktion benutzt werden soll oder nicht. (Muss in den Einstellungen aktiviert werden!)
  * `limit` __(int)__ Limitiert die Ausgabe. '-1' steht für alle. Default = -1
  * `sort_order` __(string)__ ASC oder DESC (ascending oder descending). Default ist 'DESC'.
+ * `accordeon_per_user` __(bool)__ Fügvt den Accordeon Klappeffekt bei jedem Mitarbeiter hinzu, sodass erst nach einem Klick die Zusätzlichen Infos ausklappen. Kann gleichzeitig zum `accordeon` genutzt werden. Default ist `false`
+ * `show_on` __(string)__ `click` oder `hover` legt fest, ob beim klcik oder beim hovern die Infos der Mitarbeiter angezeigt werden sollen. Greift nur auf `accordeon_per_user`. Default ist `click`.
  
 ## Erweitert
 ### Eigene Felder über das Theme einfügen

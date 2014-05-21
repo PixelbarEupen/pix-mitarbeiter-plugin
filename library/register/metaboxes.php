@@ -119,7 +119,7 @@ if(!function_exists("pix_mitarbeiter_field_args")):
 	if(!function_exists("pix_mitarbeiter_register_fields")):	
 		function pix_mitarbeiter_register_fields(){
 			if(function_exists("register_field_group")):
-				register_field_group(pix_mitarbeiter_field_args());
+				register_field_group(pix_mitarbeiter_field_args($box_args));
 			endif;
 		}
 		add_action('after_setup_theme','pix_mitarbeiter_register_fields');
