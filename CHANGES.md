@@ -1,5 +1,9 @@
 ### Changelog Pix Mitarbeiter Plugin
 
+#### 0.1.7 (22/05/14)
+
+*added template support to customize templates within the childtheme
+
 #### 0.1.6 (21/05/14)
 
 * added filtered user-output via add_filter
