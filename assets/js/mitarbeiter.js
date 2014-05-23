@@ -1,3 +1,8 @@
+function isEmpty( el ){
+  return !$.trim(el.html())
+}
+
+
 jQuery(document).ready(function($){
 	
 	var $wrapper	= $('.alle-mitarbeiter').not('.no-accordeon'),
@@ -21,10 +26,15 @@ jQuery(document).ready(function($){
 		var icon = '<i class="dashicons dashicons-arrow-right-alt2"></i>';
 		$user.find('h4').prepend(icon);
 		
+		$user.find('h4').each(function(){
+			if(!isEmpty($(this).parent().find('.user-content'))){
+				$(this).addClass('hasContent');
+			}
+		});
 		
 		if($user.data('trigger') === 'click'){
 			$user.find('h4').click(function(e){
-				if(!$(this).parent().find('.user-content').is(':empty')){
+				if(!isEmpty($(this).parent().find('.user-content'))){
 					$(this).parent().find('.user-content').slideToggle();
 					$(this).find('i').toggleClass('open')
 				}
@@ -32,11 +42,11 @@ jQuery(document).ready(function($){
 		} else if($user.data('trigger') === 'hover'){
 			
 			$user.hoverIntent(function(e){
-				if(!$(this).find('.user-content').is(':empty')){
+				if(!isEmpty($(this).find('.user-content'))){
 					$(this).find('.user-content').slideDown();
 				}
 			},function(){
-				if(!$(this).find('.user-content').is(':empty')){
+				if(!isEmpty($(this).find('.user-content'))){
 					$(this).find('.user-content').slideUp();
 				}
 			});
