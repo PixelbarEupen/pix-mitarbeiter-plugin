@@ -1,9 +1,5 @@
 <?php
 
-function get_pix_mitarbeiter_template_content($pix_content){
-	return $pix_content;
-}
-		
 		
 
 
@@ -51,7 +47,7 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 
 
 		
-		ob_start('get_pix_mitarbeiter_template_content');
+			ob_start();
 			if($template != ''):
 				if(file_exists(STYLESHEETPATH.'/mitarbeiter-templates/'.$template.'.php')):
 					include(STYLESHEETPATH.'/mitarbeiter-templates/'.$template.'.php');
@@ -61,11 +57,10 @@ if(!function_exists('pix_mitarbeiter_shortcode_handler')):
 			else:
 				include(UNIX_PIX_MITARBEITER_PATH.'/library/templates/default-shortcode.php');
 			endif;	
-		ob_end_flush();		
 
-		$output = get_pix_mitarbeiter_template_content();
+
+			return ob_get_clean();
 		
-		return $output;
 	}
 	add_shortcode('mitarbeiter','pix_mitarbeiter_shortcode_handler');
 	
