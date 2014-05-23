@@ -1,22 +1,2 @@
-.alle-mitarbeiter {margin-bottom: 25px;}
-.mitarbeiter {
-	padding: 25px 0;
-	border-bottom: 1px solid lightgrey;
-}
-.mitarbeiter .image {
-	float: left;
-	margin: 0 25px 0 0;
-}
-.mitarbeiter .clear {
-	clear: both;
-}
-
-
-.mitarbeiter-accordeon h3 {
-	cursor: pointer;
-}
-.mitarbeiter-accordeon .accordeon-wrapper {
-	display: none;
-}
-.mitarbeiter i.dashicons{-webkit-transition-property:all;-moz-transition-property:all;-o-transition-property:all;transition-property:all;-webkit-transition-duration:200ms;-moz-transition-duration:200ms;-o-transition-duration:200ms;transition-duration:200ms;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg)}
+.alle-mitarbeiter {margin-bottom: 25px;} .mitarbeiter { padding: 25px 0; border-bottom: 1px solid lightgrey;} .mitarbeiter .image { float: left; margin: 0 25px 0 0;} .mitarbeiter .clear {clear: both;} .mitarbeiter .hasContent {cursor: pointer;} .mitarbeiter-accordeon .accordeon-wrapper {display: none;} .mitarbeiter i.dashicons{-webkit-transition-property:all;-moz-transition-property:all;-o-transition-property:all;transition-property:all;-webkit-transition-duration:200ms;-moz-transition-duration:200ms;-o-transition-duration:200ms;transition-duration:200ms;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg)}
 .mitarbeiter i.dashicons.open{-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}
